@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/jaeyun/Desktop/GitHub/Jaeyun_INV/소스파일",
+      "program": "/Users/jaeyun/Desktop/GitHub/Jaeyun_INV/소스파일/build/Debug/outDebug"
+    }
+  ]
+}
