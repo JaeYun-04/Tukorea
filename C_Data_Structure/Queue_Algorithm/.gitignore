@@ -1,0 +1,10 @@
+.DS_Store
+
+# Build artifacts
+SourceFiles/build/
+
+# VS Code workspace settings
+SourceFiles/.vscode/
+
+# Object files
+*.o
