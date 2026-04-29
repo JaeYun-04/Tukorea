@@ -1,0 +1,5 @@
+# Ignore build artifacts and VS Code workspace settings
+build/
+.vscode/
+*.o
+outDebug
