@@ -19,7 +19,7 @@ Node org = {0, NULL};
 Node* alloc_node(Element e)
 {
     Node* p = (Node*)malloc(sizeof(Node));
-    p->data = e;
+    p->data = e; 
     p->link = NULL;
     return p;
 }
