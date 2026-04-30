@@ -1,31 +1,34 @@
-// 쉽게 배우는 C자료구조(최영규, 생능 출판사, 2024)
-// 참고파일: ch06/LinkedList.h
-//--------------------------------------------------------------------
-// 코드 6.4 연결된 구조의 리스트 구현
+#include <stdio.h>
+#include <stdlib.h>
 
-// 리스트의 데이터(Element는 미리 정의되어 있어야 함하고, MAX_SIZE는 필요 없음)
-typedef struct Node {   // 자기참조 구조체
-    Element data;       // 데이터 필드(스택 요소)
-    struct Node* link;  // 링크 필드
+typedef int Element;
+
+// 자기참조 구조체
+typedef struct Node {
+    Element data;
+    struct Node* link;
 } Node;
 
-Node* head = NULL;
+// 더미 헤드 노드 (head 역할)
+// org.link가 실제 첫 번째 노드를 가리킴
+Node org = {0, NULL};
 
-// 단순 연결 구조 노드의 동적 할당 함수(코드 5.3과 동일)
+// ----------------------------------------------------------------
+// 노드 동적 할당 / 해제
+// ----------------------------------------------------------------
 Node* alloc_node(Element e)
 {
     Node* p = (Node*)malloc(sizeof(Node));
-    p->data = e;        // 데이터 초기화
-    p->link = NULL;     // 링크 초기화
+    p->data = e;
+    p->link = NULL;
     return p;
 }
 
-// 단순 연결 구조 노드의 데이터 반환 및 동적 해제 함수(코드 5.3과 동일)
 Element free_node(Node* p)
 {
-    Element e = p->data; // 데이터 복사
-    free(p);             // 동적 해제
-    return e;            // 데이터 반환
+    Element e = p->data;
+    free(p);
+    return e;
 }
 
 void error(char* str)
@@ -34,28 +37,40 @@ void error(char* str)
     exit(1);
 }
 
-// 리스트의 연산들
-int is_empty() { 
-    return head == NULL; 
+// ----------------------------------------------------------------
+// 기본 리스트 연산
+// ----------------------------------------------------------------
+int is_empty()
+{
+    return org.link == NULL;
 }
 
-int is_full() { 
-    return 0; 
+int is_full()
+{
+    return 0;
 }
 
-void init_list() { 
-    head = NULL; 
+void init_list()
+{
+    // 더미 노드만 남기고 초기화
+    org.link = NULL;
 }
 
-// 리스트 요소 접근 함수(노드, 데이터)
+// ----------------------------------------------------------------
+// 노드/데이터 접근
+// ----------------------------------------------------------------
+
+// pos번째 실제 노드 반환
+// org는 -1번 노드, org.link는 0번 노드로 간주
 Node* get_node(int pos)
 {
-    if (pos < 0) {
+    if (pos < -1) {
         return NULL;
     }
-
-    Node* p = head;
-    for (int i = 0; i < pos; i++, p = p->link) { // p = p-> link(이해하는게 중요함)
+    // pos == -1이면 더미 노드 org 반환 (삽입/삭제에서 before로 활용)
+    Node* p = &org;
+    for (int i = -1; i < pos; i++) {
+        p = p->link;
         if (p == NULL) {
             return NULL;
         }
@@ -72,106 +87,94 @@ Element get_entry(int pos)
     return p->data;
 }
 
-// 리스트의 삽입 연산
+// ----------------------------------------------------------------
+// 삽입 연산
+// ----------------------------------------------------------------
+// before = get_node(pos - 1) 이 pos==0이면 더미노드 &org를 반환하므로
+// 항상 before != NULL → 분기 불필요!
 void insert(int pos, Element e)
 {
-    Node* p = alloc_node(e); // 삽입할 노드 생성 및 초기화
-    if (pos == 0) {
-        // 첫 번째 위치(pos 0)에 노드 추가
-        p->link = head;
-        head = p;
+    Node* before = get_node(pos - 1); // pos==0 → &org 반환
+    if (before == NULL) {
+        error("Invalid Position Error!");
     }
-    else {
-        Node* before = get_node(pos - 1);
-        if (before == NULL) {
-            error("Invalid Position Error!");
-        } 
-        // 두 번째 위치부터 노드 추가
-        p->link = before->link;
-        before->link = p;
-    }
+    Node* p = alloc_node(e);
+    p->link = before->link;
+    before->link = p;
 }
 
-// 리스트의 삭제 연산
+// ----------------------------------------------------------------
+// 삭제 연산
+// ----------------------------------------------------------------
 Element delete(int pos)
 {
     if (is_empty()) {
         error("Underflow Error!");
     }
-
-    Node* p = get_node(pos);            // 삭제할 노드
-    if (p == NULL) {
+    Node* before = get_node(pos - 1); // pos==0 → &org 반환
+    if (before == NULL || before->link == NULL) {
         error("Invalid Position Error!");
     }
-
-    Node* before = get_node(pos - 1);   // 이전 노드
-    if (before == NULL) {
-        // 맨 앞 노드 삭제
-        head = p->link;
-    } else {
-        // 맨 앞이 아닌 노드 삭제
-        before->link = p->link;
-    }
-
+    Node* p = before->link;   // 삭제할 노드
+    before->link = p->link;   // before → p 다음 노드로 연결
     return free_node(p);
 }
 
-// 리스트의 모든 요소 삭제(동적 해제)
+// ----------------------------------------------------------------
+// 리스트 전체 삭제
+// ----------------------------------------------------------------
 void destroy_list()
 {
-    while (is_empty() == 0) {
+    while (!is_empty()) {
         delete(0);
     }
 }
 
+// ----------------------------------------------------------------
+// 크기
+// ----------------------------------------------------------------
 int size()
 {
     int count = 0;
-    for (Node* p = head; p != NULL; p = p->link) {
+    for (Node* p = org.link; p != NULL; p = p->link) {
         count++;
     }
     return count;
 }
 
-//--------------------------------------------------------------------
-// 코드 6.6 연결 리스트의 추가 연산
+// ----------------------------------------------------------------
+// 추가 연산 (코드 6.6)
+// ----------------------------------------------------------------
+
+// 맨 뒤에 삽입
 void append(Element e)
 {
     Node* p = alloc_node(e);
-    if (is_empty()) {
-        head = p;
-        return;
-    }
-
-    Node* tail = head;
+    // tail 탐색: org부터 시작
+    Node* tail = &org;
     while (tail->link != NULL) {
         tail = tail->link;
     }
     tail->link = p;
 }
 
+// 맨 뒤 노드 삭제 후 반환
 Element pop()
 {
     if (is_empty()) {
         error("Underflow Error!");
     }
-
-    Node* p = head;
-    Node* before = NULL;
+    Node* before = &org;
+    Node* p = org.link;
     while (p->link != NULL) {
         before = p;
         p = p->link;
     }
-
-    if (before == NULL) {
-        head = NULL;
-    } else {
-        before->link = NULL;
-    }
-
+    before->link = NULL;
     return free_node(p);
 }
- 
+
+// pos번째 데이터 교체
 void replace(int pos, Element e)
 {
     Node* p = get_node(pos);
@@ -181,14 +184,16 @@ void replace(int pos, Element e)
     p->data = e;
 }
 
+// 데이터 e의 위치 반환 (없으면 -1)
 int find(Element e)
 {
     int i = 0;
-    for (Node* p = head; p != NULL; p = p->link, i++) {
+    for (Node* p = org.link; p != NULL; p = p->link, i++) {
         if (p->data == e) {
             return i;
         }
     }
     return -1;
 }
-//--------------------------------------------------------------------
+
+// ----------------------------------------------------------------
