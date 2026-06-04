@@ -62,8 +62,6 @@ int binary_search_iter(int A[], int key, int low, int high) {
 int mid = (int)((float)(key - A[low]) / (A[high] - A[low]) * (high - low)) + low;
 ```
 
-> ⚠️ 데이터 분포가 불균등하면 추정이 빗나가 성능이 오히려 저하될 수 있습니다.
-
 ---
 
 ##  성능 비교
