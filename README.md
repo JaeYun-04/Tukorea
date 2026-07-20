@@ -1,34 +1,35 @@
-#  TUK (Tech University of Korea) Portfolio
-大学生活の中で取り組んだ課題、プロジェクト、および専攻科目の学習記録を保管する場所です。
+# 🎓 TUK (한국공학대학교) Portfolio
+대학 생활 동안 진행한 과제, 프로젝트 및 전공 과목 학습 기록을 보관하는 공간입니다.
 
 ---
 
-##  Project Overview
-主なプロジェクトです。
+## 🚀 Project Overview
+주요 프로젝트 목록입니다.
 
-| 期間 | プロジェクト名 | 概要 | 技術スタック | 詳細リンク |
+| 기간 | 프로젝트명 | 개요 | 기술 스택 | 상세 링크 |
 |:---:|:---|:---|:---|:---:|
 
 ---
 
-##  Coursework & Assignments
-学年・学期ごとの履修科目と関連課題です。
+## 📚 Coursework & Assignments
+학년 및 학기별 이수 과목과 관련 과제입니다.
 
-###  2年1学期 (2026)
+### 📌 2학년 1학기 (2026)
 - **Data Structure**: 
 - **Object-oriented programming**: 
 
-###  2年2学期 (2026)
+### 📌 2학년 2학기 (2026)
 - ****: 
 - ****: 
 
 ---
 
-##  Skills & Tools
+## 🛠️ Skills & Tools
 ### Languages
 <img src="https://img.shields.io/badge/Java-007396?style=flat&logo=Java&logoColor=white"/> <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=Python&logoColor=white"/> <img src="https://img.shields.io/badge/C++-00599C?style=flat&logo=C%2B%2B&logoColor=white"/>
 ![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=C&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=PostgreSQL&logoColor=white)
+
 ---
 
 ## 📫 Contact
