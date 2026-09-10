@@ -19,8 +19,8 @@
 - **Object-oriented programming**: 
 
 ### 📌 2학년 2학기 (2026)
-- ****: 
-- ****: 
+- ****: JAVA
+- ****: Database
 
 ---
 
