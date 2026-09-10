@@ -11,6 +11,10 @@
 
 ---
 
+## 보유 자격증
+SQLD
+
+---
 ## 📚 Coursework & Assignments
 학년 및 학기별 이수 과목과 관련 과제입니다.
 
