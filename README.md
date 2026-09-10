@@ -15,12 +15,12 @@
 학년 및 학기별 이수 과목과 관련 과제입니다.
 
 ### 📌 2학년 1학기 (2026)
-- **Data Structure**: 
-- **Object-oriented programming**: 
+- **Data Structure**
+- **Object-oriented programming**
 
 ### 📌 2학년 2학기 (2026)
-- ****: JAVA
-- ****: Database
+- **JAVA**
+- **Database**
 
 ---
 
