@@ -21,10 +21,16 @@ SQLD
 ### 📌 2학년 1학기 (2026)
 - **Data Structure**
 - **Object-oriented programming**
+- **Linear Algebra**
+- **logic circuit**
+- **Linux Basics**
 
 ### 📌 2학년 2학기 (2026)
 - **JAVA**
 - **Database**
+- **Open-source software**
+- **Computer Structure**
+- **Information Security**
 
 ---
 
