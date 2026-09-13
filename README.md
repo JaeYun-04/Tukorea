@@ -1,9 +1,9 @@
-# 🎓 TUK (한국공학대학교) Portfolio
+#  TUK (한국공학대학교) Portfolio
 대학 생활 동안 진행한 과제, 프로젝트 및 전공 과목 학습 기록을 보관하는 공간입니다.
 
 ---
 
-## 🚀 Project Overview
+## Project Overview
 주요 프로젝트 목록입니다.
 
 | 기간 | 프로젝트명 | 개요 | 기술 스택 | 상세 링크 |
@@ -15,7 +15,7 @@
 SQLD
 
 ---
-## 📚 Coursework & Assignments
+##  Coursework & Assignments
 학년 및 학기별 이수 과목과 관련 과제입니다.
 
 ### 📌 2학년 1학기 (2026)
