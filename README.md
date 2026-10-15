@@ -1,9 +1,9 @@
-# 🎓 TUK (Tech University of Korea) Portfolio
+#  TUK (Tech University of Korea) Portfolio
 대학 생활 동안 진행한 과제, 프로젝트 및 전공 학습 기록을 보관하는 저장소입니다.
 
 ---
 
-## 🚀 Project Overview
+##  Project Overview
 주요 프로젝트입니다.
 
 | 기간 | 프로젝트명 | 한 줄 설명 | 기술 스택 | 상세 링크 |
