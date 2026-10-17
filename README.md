@@ -19,10 +19,14 @@
 - **Object-oriented programming**: 
 
 ### 2학년 2학기 (2026)
-- ****: 
-- ****: 
+- Java
+- Information Security
+- Database
 
 ---
+### 취득자격증
+- SQLD
+
 
 ## 🛠 Skills & Tools
 ### Languages
