@@ -36,4 +36,3 @@
 
 ## 📫 Contact
 - **Email**: jayyun5920@tukorea.ac.kr
-- **Email**: jayyun5920@gmail.com
